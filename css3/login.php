@@ -6,7 +6,6 @@ if(isset($_POST) && $_POST){
     $password = "";
     $dbname = "sayek";
     
-
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
