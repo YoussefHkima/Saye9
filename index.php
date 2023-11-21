@@ -38,15 +38,16 @@ $result = $conn->query($sql);
                 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="nav navbar-nav"><img src="saya9 3.png" alt="" height="50" width="50"></a>
+            <a class="nav navbar-nav" href="index.php"><img src="saya9 3.png" alt="" height="50" width="50"></a>
             </div>
             <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="addpds.php">Add Products</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php
-                    if($_SESSION["login"] == "true"){
-                        echo'<li class="active"><a href="css3/login.php"><span class="glyphicon glyphicon-log-in"></span>LogOut</a></li>';
+                    if(isset($_SESSION["login"])){
+                        echo'<li class="active"><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>LogOut</a></li>';
                     }else{
                         echo'<li class="active"><a href="css3/signup.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>';
                         echo'<li class="active"><a href="css3/login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>';

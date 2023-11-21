@@ -1,11 +1,12 @@
-<?php 
+<?php
 session_start();
+
 if(isset($_POST) && $_POST){
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "sayek";
-    
+
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -18,8 +19,13 @@ if(isset($_POST) && $_POST){
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        $_SESSION["login"] = "true";
-        header("location:/Saye9");    
+        $_SESSION["login"] = True;
+        if (isset($_GET['redirect'])){
+            header("location:" . $_GET['redirect']);
+        }else{
+            header("location:/saya9");
+        }
+        die;
     }else{
         echo'false';
     }

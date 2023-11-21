@@ -43,7 +43,6 @@ a {
     background: rgba(246, 247, 248, 0.9);
 }
 
-.login-html .sign-in-htm,
 .login-html .sign-up-htm {
     top: 0;
     left: 0;
@@ -53,9 +52,9 @@ a {
     transform: rotateY(180deg);
     backface-visibility: hidden;
     transition: all .4s linear;
+    color: black;
 }
 
-.login-html .sign-in,
 .login-html .sign-up,
 .login-form .group .check {
     display: none;
@@ -109,7 +108,7 @@ a {
     background: rgba(117, 117, 117, 0.1);
 }
 
-.login-form .group input[data-type="password"] {
+.login-form .group input[data-type="MOT DE PASSE"] {
     -text-security: circle;
     -webkit-text-security: circle;
 }
@@ -121,62 +120,6 @@ a {
 
 .login-form .group .button {
     background: linear-gradient(to right, #0f475f 0%, #4daae9 100%);
-}
-
-.login-form .group label .icon {
-    width: 15px;
-    height: 15px;
-    border-radius: 2px;
-    position: relative;
-    display: inline-block;
-    background: rgba(247, 241, 241, 0.1);
-}
-
-.login-form .group label .icon:before,
-.login-form .group label .icon:after {
-    content: '';
-    width: 10px;
-    height: 2px;
-    background: rgb(243, 241, 241);
-    position: absolute;
-    transition: all .2s ease-in-out 0s;
-}
-
-.login-form .group label .icon:before {
-    left: 3px;
-    width: 5px;
-    bottom: 6px;
-    transform: scale(0) rotate(0);
-}
-
-.login-form .group label .icon:after {
-    top: 6px;
-    right: 0;
-    transform: scale(0) rotate(0);
-}
-
-.login-form .group .check:checked+label {
-    color: rgb(85, 82, 82);
-}
-
-.login-form .group .check:checked+label .icon {
-    background: #5d5f61;
-}
-
-.login-form .group .check:checked+label .icon:before {
-    transform: scale(1) rotate(45deg);
-}
-
-.login-form .group .check:checked+label .icon:after {
-    transform: scale(1) rotate(-45deg);
-}
-
-.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
-    transform: rotate(0);
-}
-
-.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
-    transform: rotate(0);
 }
 
 .hr {
