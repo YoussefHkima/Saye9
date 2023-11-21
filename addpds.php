@@ -5,7 +5,7 @@ if(!isset($_SESSION["login"])){
     header("location:/Saye9/css3/login.php?redirect=" . $_SERVER['REQUEST_URI']);
     die;
 }
-
+ 
 if(isset($_POST) && $_POST){
     print_r($_POST);
 
