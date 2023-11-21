@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST) && $_POST){
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = ""; 
     $dbname = "sayek";
 
     // Create connection
