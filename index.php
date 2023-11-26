@@ -29,12 +29,48 @@ $result = $conn->query($sql);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <title>Document</title>
+    <style>   
+    body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+.navbar {
+  background-color:#174761;
+  overflow: hidden;
+  margin-bottom: 0 auto;
+ 
+}
+.navbar .search-container {
+    float: left;
+}
+.navbar input[type=text] {
+  padding: 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+}
+.navbar button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+ 
+
+}
+
+.navbar button:hover {
+  background: #45a049;
+}
+</style>
     
     
 </head>
 <body>
     <div class="container-fuild">
-        
+    <div class="search-container">
                 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -44,6 +80,13 @@ $result = $conn->query($sql);
             <li class="active"><a href="index.php">Home</a></li>
             <li class="active"><a href="addpds.php">Add Products</a></li>
             </ul>
+            <nav class="navbar">
+  
+  
+    <input type="text" id="searchInput" placeholder="search...">
+    <button onclick="search()">search</button>
+  
+                   
             <ul class="nav navbar-nav navbar-right">
                 <?php
                     if(isset($_SESSION["login"])){
@@ -54,8 +97,10 @@ $result = $conn->query($sql);
                     }
                 ?>
       </ul>
-            
+      
         </nav>
+        </div>
+</nav>
             <div class="container">
                 <div class="row">
                         <?php

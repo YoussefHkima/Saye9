@@ -5,7 +5,8 @@ if(!isset($_SESSION["login"])){
     header("location:/Saye9/css3/login.php?redirect=" . $_SERVER['REQUEST_URI']);
     die;
 }
- 
+ ?>
+ <?php
 if(isset($_POST) && $_POST){
     print_r($_POST);
 
@@ -25,7 +26,7 @@ if(isset($_POST) && $_POST){
     VALUES (titre='".$_POST['titre']."', description='".$_POST['description']."', prix='".$_POST['prix']."', quantité='".$_POST['quantité']."', image='".$_POST['image']."')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        header("location:/saye9");
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -78,7 +79,7 @@ if(isset($_POST) && $_POST){
         <center>
 <h1>Ajouter un Produit</h1>
     
-    <form action="process_add_product.php" method="post">
+    <form action="addpds.php" method="post">
         <label for="productName">Nom du Produit :</label>
         <input type="text" id="productName" name="productName" required>
 
