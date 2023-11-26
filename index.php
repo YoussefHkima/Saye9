@@ -37,8 +37,8 @@ $result = $conn->query($sql);
 .navbar {
   background-color:#174761;
   overflow: hidden;
-  margin-bottom: 0 auto;
- 
+  margin-bottom: 0 auto; 
+  
 }
 .navbar .search-container {
     float: left;
