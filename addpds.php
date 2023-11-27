@@ -44,6 +44,7 @@ if(isset($_POST) && $_POST){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" href="addpds.css">
     <style>
         label {
             display: block;
@@ -73,27 +74,25 @@ if(isset($_POST) && $_POST){
             }
         ?>
 </ul>
-    
+
 </nav>
         </div>
         <center>
+            <div class="container">
 <h1>Ajouter un Produit</h1>
     
     <form action="addpds.php" method="post">
-        <label for="productName">Nom du Produit :</label>
-        <input type="text" id="productName" name="productName" required>
-
-        <label for="productDescription">Description du Produit :</label>
-        <textarea id="productDescription" name="productDescription" required></textarea>
-
-        <label for="productPrice">Prix du Produit :</label>
-        <input type="number" id="productPrice" name="productPrice" step="0.01" required>
-        <label for="image">Sélectionnez une Image :</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
-        </select><br><br>
-
-        <input type="submit" value="Ajouter le Produit">
+        <label for="nom_produit">Nom du produit:</label>
+      <input type="text" id="nom_produit" name="nom_produit"><br>
+      <label for="prix">Prix:</label>
+      <input type="text" id="prix" name="prix"><br>
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description"></textarea><br>
+      <label for="photo">Télécharger une photo:</label>
+      <input type="file" id="photo" name="photo"><br>
+      <input type="submit" value="Ajouter">
     </form>
+    </div>
     </center>
         </div>
 
