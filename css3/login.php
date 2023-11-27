@@ -23,7 +23,7 @@ if(isset($_POST) && $_POST){
         if (isset($_GET['redirect'])){
             header("location:" . $_GET['redirect']);
         }else{
-            header("location:/saya9");
+            header("location:/Saye9");
         }
         die;
     }else{
