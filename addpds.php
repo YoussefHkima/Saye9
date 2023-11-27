@@ -92,7 +92,7 @@ if(isset($_POST) && $_POST){
       <input type="file" id="photo" name="photo"><br>
       <input type="submit" value="Ajouter">
     </form>
-    </div>
+    </div> 
     </center>
         </div>
 
