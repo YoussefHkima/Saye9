@@ -49,8 +49,8 @@ if(isset($_POST) && $_POST){
     <div class="container-fluid">
         <div class="left">
             <div class="header">
-                <h2 class="animation a1">Welcome Back</h2>
-                <h4 class="animation a2">Log in to your account using email and password</h4>
+                <h2 class="animation a1">Content de te revoir</h2>
+                <h4 class="animation a2">Connectez-vous à votre compte en utilisant votre email et votre mot de passe</h4>
             </div>
             <div class="form">
                 <form action="" method="post">
