@@ -1,19 +1,38 @@
 <?php
 session_start();
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sayek";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_GET['search']) && $_GET['search']){
+  $sql = "SELECT * FROM `produit` WHERE titre LIKE '%".$_GET['search']."%'";
+  $result = $conn->query($sql);
+}else{
+$sql = "SELECT * FROM `produit`";
+$result = $conn->query($sql);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Document</title> 
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <style>
         nav {
             display: block;
@@ -26,8 +45,7 @@ session_start();
     </style>
 </head>
 <body>
-    
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="nav navbar-nav" href="index.php"><img src="saya9 3.png" alt="" height="50" width="50"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -73,25 +91,31 @@ session_start();
       </ul>
     </div>
   </nav>
-            
-                <div class="container mt-5">
-        <h2>Comments</h2>
-        <form action="add_comment.php" method="post">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+        <div class="container mt-5">
+        <div class="container">
+                <div class="row">
+                        <?php
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($produit_nettoyage = $result->fetch_assoc()) { ?>
+                                <div class="col-sm-4">
+                                    <img src=<?= $produit_nettoyage["image"]; ?> width="200" height="200">
+                                    <h3><?= $produit_nettoyage["titre"]; ?></h3>
+                                    <p><?= $produit_nettoyage["description"]; ?></p>
+                                    <p><?= $produit_nettoyage["prix"]; ?> TND</p>
+                                </div>
+                            <?php }
+                        } else {
+                            echo "Pas de produits";
+                        }
+                        ?>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Add Comment</button>
-        </form>
-    </div>
-        </div>
-    </div>
-</div>        
-</div>
+     </div>
+
 </body>
 </html>
-
+<?php
+    $conn->close();
+    die;
+?>

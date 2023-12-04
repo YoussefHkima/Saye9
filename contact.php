@@ -13,7 +13,7 @@
 <body>
 
   <header>
-    <h1>Nettoyage Plus</h1>
+    <h1> <a href="index.php"><img src="saya9 3.png" alt="" height="80" width="80"></a></h1>
     <p class="lead">Votre partenaire de confiance pour des produits de nettoyage efficaces.</p>
   </header>
 
