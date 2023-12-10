@@ -1,27 +1,27 @@
-<?php
-session_start();
+    <?php
+    session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sayek";   
- 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "sayek";   
+    
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Check connection 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-if(isset($_GET['search']) && $_GET['search']){
-  $sql = "SELECT * FROM `produit` WHERE titre LIKE '%".$_GET['search']."%'";
-  $result = $conn->query($sql);
-}else{
-$sql = "SELECT * FROM `produit`";
-$result = $conn->query($sql);
-}
-?>
+    if(isset($_GET['search']) && $_GET['search']){
+      $sql = "SELECT * FROM `produit` WHERE titre LIKE '%".$_GET['search']."%'";
+      $result = $conn->query($sql);
+    }else{
+    $sql = "SELECT * FROM `produit`";
+    $result = $conn->query($sql);
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +33,7 @@ $result = $conn->query($sql);
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
     <style>
         nav {
             display: block;
@@ -46,7 +47,8 @@ $result = $conn->query($sql);
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="nav navbar-nav" href="index.php"><img src="saya9 3.png" alt="" height="50" width="50"></a>
+<div class="main_box">
+  <a class="nav navbar-nav" href="index.php"><img src="saya93.png" alt="" height="50" width="50"></a> </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -99,10 +101,10 @@ $result = $conn->query($sql);
                             // output data of each row
                             while($produit_nettoyage = $result->fetch_assoc()) { ?>
                                 <div class="col-sm-4">
-                                    <img src=<?= $produit_nettoyage["image"]; ?> width="200" height="200">
-                                    <h3><?= $produit_nettoyage["titre"]; ?></h3>
-                                    <p><?= $produit_nettoyage["description"]; ?></p>
-                                    <p><?= $produit_nettoyage["prix"]; ?> TND</p>
+                                  <img src=<?= $produit_nettoyage["image"]; ?> width="200" height="200">
+                                  <h3><?= $produit_nettoyage["titre"]; ?></h3>
+                                  <p><?= $produit_nettoyage["description"]; ?></p>
+                                  <p><?= $produit_nettoyage["prix"]; ?> TND</p>
                                 </div>
                             <?php }
                         } else {
@@ -112,6 +114,17 @@ $result = $conn->query($sql);
                 </div>
             </div>
      </div>
+     <div class="container mt-5">
+        <h2>Comments</h2>
+        <form action="add_comment.php" method="post">
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Comment</button>
+        </form>
+    </div>
+    <br><br><br>
 
 </body>
 </html>

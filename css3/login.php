@@ -27,7 +27,7 @@ if(isset($_POST) && $_POST){
         }
         die;
     }else{
-        echo'false';
+        echo"<p class='error-message'>Invalid username or password.</p>";
     }
 }
 ?>
@@ -42,10 +42,18 @@ if(isset($_POST) && $_POST){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="login.css">
+    <style>
+        .welcome-message {
+            background-color: #e0f7fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 
 <body>
+
     <div class="container-fluid">
         <div class="left">
             <div class="header">
@@ -59,8 +67,25 @@ if(isset($_POST) && $_POST){
                 <p class="animation a5"><a href="#">Forgot Password</a></p>
                 <button type="submit" class="animation a6">LOGIN</button>
                 </form>
+
                 
             </div>
+            <br><br>
+            <?php
+// Check if the cookie is already set
+if (!isset($_COOKIE["user"])) {
+    // Set a cookie with a name, value, and expiration time
+    $cookie_name = "user";
+    $cookie_value = "Hello friends I am the cookie ready for you !!";
+    $expiration_time = time() + (60*60*24*7); 
+    setcookie($cookie_name, $cookie_value, $expiration_time, ); 
+
+    echo "<p>Cookie '$cookie_name' is set!</p>";
+} else {
+    // If the cookie is already set, display a welcome message
+    echo "<div class='welcome-message'>Welcome back, " . $_COOKIE["user"] . "!</div>";
+}
+?>
         </div>
         <div class="right"></div>
     </div>

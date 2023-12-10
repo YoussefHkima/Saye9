@@ -9,11 +9,54 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <title>À Propos - Nettoyage Plus</title>
   <link rel="stylesheet" href="propos.css">
+  <style>
+     h1 { 
+    position: relative; 
+    transform: center ; 
+    animation: move infinite 0.5s alternate ease-in-out; 
+  } 
+  
+  
+  h1::before { 
+    content: ""; 
+    width: 0.75em; 
+    height: 0.75em; 
+    position: absolute; 
+    left: 50%; 
+    top: -20%; 
+    transform: translateX(-50%); 
+    border-radius: 50%; 
+   
+  } 
+  
+  h1::after { 
+    content: ""; 
+    position: absolute; 
+    width: 0.5em; 
+    height: 5em; 
+    border-radius: 0.75em; 
+    left: 50%; 
+    top: -20%; 
+    transform: translateX(-50%);  
+    position: fixed; 
+  
+    z-index: -2; 
+  } 
+  
+  @keyframes move { 
+    from { 
+      transform: rotate(-6deg); 
+    } 
+    to { 
+      transform: rotate(6deg); 
+    } 
+  } 
+  </style>
 </head>
 <body>
 
   <header>
-    <h1><a href="index.php"><img src="saya9 3.png" alt="" height="80" width="80"></a></h1>
+    <h1><a href="index.php"><img src="saya93.png" alt="" height="80" width="80"></a></h1>
     <p class="lead">Votre partenaire de confiance pour des produits de nettoyage efficaces.</p>
   </header>
 

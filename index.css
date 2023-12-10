@@ -1,0 +1,38 @@
+.main_box {
+    position: relative;
+    transform: center -5em;
+    animation: move infinite 0.5s alternate ease-in-out;
+}
+
+.main_box::before {
+    content: "";
+    width: 0.75em;
+    height: 0.75em;
+    position: absolute;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.main_box::after {
+    content: "";
+    position: absolute;
+    width: 0.5em;
+    height: 5em;
+    border-radius: 0.75em;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+    position: fixed;
+    z-index: -2;
+}
+
+@keyframes move {
+    from {
+        transform: rotate(-6deg);
+    }
+    to {
+        transform: rotate(6deg);
+    }
+}
